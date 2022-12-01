@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.project.activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo

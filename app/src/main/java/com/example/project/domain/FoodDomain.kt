@@ -4,7 +4,8 @@ data class FoodDomain(
     private var title: String,
     private var pic: String,
     private var description: String,
-    private var fee: Double, private var numberInCart: Int
+    private var fee: Double,
+    private var numberInCart: Int
 ) {
     constructor(
         title: String,
