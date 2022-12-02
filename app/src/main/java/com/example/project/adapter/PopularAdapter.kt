@@ -1,12 +1,15 @@
 package com.example.project.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.project.R
+import com.example.project.activity.ShowDetailActivity
 import com.example.project.databinding.ViewholderPopularBinding
 import com.example.project.domain.FoodDomain
 
@@ -58,6 +61,12 @@ class PopularAdapter(
 //                DiskCacheStrategy.ALL
 //            ).centerCrop().circleCrop()
                 .into(binding.pic)
+
+            holder.binding.addBtn.setOnClickListener {
+                val intent = Intent(holder.itemView.context, ShowDetailActivity::class.java)
+                intent.putExtra("object", lstPopularFood[position])
+                holder.itemView.context.startActivity(intent)
+            }
         }
     }
 
