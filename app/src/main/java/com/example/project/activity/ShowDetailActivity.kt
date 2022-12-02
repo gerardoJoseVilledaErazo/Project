@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.project.databinding.ActivityShowDetailBinding
 import com.example.project.databinding.ViewholderPopularBinding
 import com.example.project.domain.FoodDomain
+import com.example.project.helper.ManagementCart
 
 class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -19,6 +20,7 @@ class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private var numberOrder: Int = 1;
+    private lateinit var managementCart: ManagementCart
 
     // Variable para manejar el viewBinding
     private lateinit var binding: ActivityShowDetailBinding
@@ -36,6 +38,7 @@ class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
         // Se configura el nombre de la actividad
         title = "Show Detail"
 
+        managementCart = ManagementCart(this)
         initView()
         getBundle()
     }
@@ -76,7 +79,8 @@ class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0!!.id) {
             binding.addToCartBtn.id -> {
-                startActivity(Intent(this, MainActivity::class.java))
+                objectFoodDomain.setNumberInCart(numberOrder)
+                managementCart.insertFood(objectFoodDomain)
             }
             binding.plusBtn.id -> {
                 numberOrder += 1
