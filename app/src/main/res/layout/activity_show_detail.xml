@@ -37,7 +37,7 @@
                 android:textSize="24sp" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/picFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/pizza" />

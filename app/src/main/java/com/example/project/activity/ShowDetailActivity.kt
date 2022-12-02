@@ -24,7 +24,6 @@ class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
 
     // Variable para manejar el viewBinding
     private lateinit var binding: ActivityShowDetailBinding
-    private lateinit var binding2: ViewholderPopularBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +49,11 @@ class ShowDetailActivity : AppCompatActivity(), View.OnClickListener {
             this.resources.getIdentifier(objectFoodDomain.getPic(), "drawable", this.packageName)
         Glide.with(this)
             .load(drawableResourceId)
-            .into(binding2.pic)
+            .into(binding.picFood)
 
         binding.titleTxt.text = objectFoodDomain.getTitle()
-//        binding.priceTxt.text = "$" + objectFoodDomain.getFee()
-        binding2.fee.text = "$" + objectFoodDomain.getFee()
+        binding.priceTxt.text = "$" + objectFoodDomain.getFee()
+//        binding2.fee.text = "$" + objectFoodDomain.getFee()
         binding.descriptionTxt.text = objectFoodDomain.getDescription()
         binding.numberOrderTxt.text = numberOrder.toString()
     }
