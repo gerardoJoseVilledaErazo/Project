@@ -20,4 +20,10 @@ data class FoodDomain(
     fun getDescription(): String = this.description
     fun getFee(): Double = this.fee
     fun getNumberInCart(): Int = this.numberInCart
+
+    fun setNumberInCart(numberInCart: Int) {
+        this.numberInCart = numberInCart
+    }
+
+
 }
