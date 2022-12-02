@@ -35,6 +35,14 @@ data class FoodDomain(
         this.title = title
     }
 
+    fun setDescription(description: String) {
+        this.description = description
+    }
+
+    fun setFee(fee: Double) {
+        this.fee = fee
+    }
+
     fun setNumberInCart(numberInCart: Int) {
         this.numberInCart = numberInCart
     }
