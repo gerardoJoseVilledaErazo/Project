@@ -52,7 +52,7 @@ class PopularAdapter(
 //                    ContextCompat.getDrawable(holder.itemView.context, R.drawable.cat_background5)
 //            }
             val drawableResourceId: Int = holder.itemView.context.resources.getIdentifier(
-                lstPopularFood[position].getPic(),
+                item.getPic(),
                 "drawable",
                 holder.itemView.context.packageName
             )

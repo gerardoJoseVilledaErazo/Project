@@ -2,6 +2,7 @@ package com.example.project.helper
 
 import android.content.Context
 import android.widget.Toast
+import com.example.project.Interface.ChangeNumberItemsListener
 import com.example.project.domain.FoodDomain
 
 class ManagementCart {
@@ -36,5 +37,34 @@ class ManagementCart {
 
     fun getListCart(): ArrayList<FoodDomain> {
         return tinyDB.getListObject("CarList")
+    }
+
+    fun plusNumberFood(
+        listFood: ArrayList<FoodDomain>,
+        position: Int,
+        changeNumberItemsListener: ChangeNumberItemsListener
+    ) {
+        listFood[position].setNumberInCart(listFood[position].getNumberInCart() + 1)
+        tinyDB.putListObject("CartList", listFood)
+        changeNumberItemsListener.changed()
+    }
+
+    fun minusNumberFood(
+        listFood: ArrayList<FoodDomain>,
+        position: Int,
+        changeNumberItemsListener: ChangeNumberItemsListener
+    ) {
+        if (listFood[position].getNumberInCart() == 1) {
+            listFood.removeAt(position)
+        } else {
+            listFood[position].setNumberInCart(listFood[position].getNumberInCart() - 1)
+        }
+        tinyDB.putListObject("CartList", listFood)
+        changeNumberItemsListener.changed()
+    }
+
+    fun getTotalFee(): Double {
+        val listFood: ArrayList<FoodDomain> = getListCart()
+        var fee: Double = 0.0
     }
 }
